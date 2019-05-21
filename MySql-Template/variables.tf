@@ -11,11 +11,11 @@ variable "aws_region" {
 }
 
 variable "access_key" {
-  default = "AKIAITX4PNGWEFERJP5Q"
+  default = ""
 }
 
 variable "secret_key" {
-  default = "ohSKdgfM63AkzLgXSajfkAJ2EtrHYWWSzBKP70/x"
+  default = ""
 }
 
 variable "stackname" {
