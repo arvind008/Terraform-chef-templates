@@ -1,0 +1,11 @@
+{
+  "name": "Springboot Sample - PetClinic App Server",
+  "type": "terraform",
+  "target_cloud": "aws",
+  "app_install_type": "chef",
+  "description": "Well known Spring Boot example which demonstrates 3-tier application. This template creates a Network Load Balancer and multiple Application servers. Application can be configured for build deployment from Jenkins and can be linked to an external MySQL database",
+  "prerequisites": "",
+  "limitations": "",
+  "logo": null,
+  "dashboard_template": "sizer-vm"
+}

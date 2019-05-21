@@ -1,0 +1,11 @@
+{
+  "name": "MySQL for Sample Applications",
+  "type": "terraform",
+  "target_cloud": "aws",
+  "app_install_type": "chef",
+  "description": "Creates a MySQL server from an AMI. Users and schema are pre-created. This database can be used Petclinic sample",
+  "prerequisites": "",
+  "limitations": "Template is configured for us-west2 region",
+  "logo": null,
+  "dashboard_template": "blank_application"
+}

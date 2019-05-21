@@ -1,0 +1,2 @@
+. $(dirname $(readlink -f "variables.tf"))/values.sh
+python chef_oper/push_data_to_data_bag.py $chef_dir $chef_user_pem $project_name $sf_app_name stage $pipeline_stage version $version db_ip $1 mysql_un "root" mysql_pwd "password"

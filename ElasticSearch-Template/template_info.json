@@ -1,0 +1,10 @@
+{
+  "name": "ElasticSearch Cluster",
+  "type": "terraform",
+  "target_cloud": "aws",
+  "description": "Creates a Elasticsearch cluster with user specified number of master and data nodes",
+  "prerequisites": "",
+  "limitations": "Template is configured for us-west2 region",
+  "logo": null,
+  "dashboard_template": "blank_application"
+}

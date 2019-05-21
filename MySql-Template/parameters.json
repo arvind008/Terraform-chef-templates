@@ -1,0 +1,258 @@
+{
+  "customTypes": {
+    "instanceType": {
+      "parameters": [
+        {
+          "label": "Node Type",
+          "fieldName": "node_type",
+          "dataType": "list",
+          "defaultValue": "t2.medium",
+          "options": [
+            {
+              "label": "t2.small",
+              "value": "t2.small"
+            },
+            {
+              "label": "t2.medium",
+              "value": "t2.medium"
+            },
+            {
+              "label": "t2.large",
+              "value": "t2.large"
+            },
+            {
+              "label": "Custom",
+              "value": "custom"
+            }
+          ]
+        },
+        {
+          "label": "vCPU",
+          "tooltip": "number of vcpu's",
+          "placeholder": "number of vcpu's",
+          "dataType": "integer",
+          "fieldName": "vcpus",
+          "defaultValue": 2,
+          "min": 1,
+          "max": 128
+        },
+        {
+          "label": "RAM(GB)",
+          "tooltip": "Memory size in GB",
+          "placeholder": "Memory size in GB",
+          "dataType": "integer",
+          "fieldName": "ram",
+          "defaultValue": 2,
+          "min": 1,
+          "max": 3904
+        }
+      ],
+      "action": {
+        "label": "Discover",
+        "url": "https://www.snappyflow.io/snappyflow/snappyflowapp/sizing"
+      }
+    }
+  },
+  "parameters": [
+    {
+    "label": "Application Specifications",
+    "description": "",
+    "dataType": "group",
+    "parameters": [
+      {
+        "label": "Target Location",
+        "description": "",
+        "dataType": "group",
+        "parameters": [
+          {
+          "label": "Target VPC",
+          "tooltip": "vpc for deployment",
+          "placeholder": "vpc for deployment",
+          "dataType": "list",
+          "fieldName": "vpc_id",
+          "defaultValue": "",
+          "notify": ["subnet_id"],
+          "options_query": {
+            "url": "deepinsight/cloudprofiles/{{form#cloudprofile}}/vpcs",
+            "method": "get",
+            "params": {},
+            "payload": {}
+          },
+          "options": [
+          ]
+        },
+        {
+          "label": "Target Subnet",
+          "tooltip": "subnet for deployment",
+          "placeholder": "subnet for deployment",
+          "dataType": "list",
+          "fieldName": "subnet_id",
+          "defaultValue": "",
+          "notify": [],
+          "options_query": {
+            "url": "deepinsight/cloudprofiles/{{form#cloudprofile}}/vpcs",
+            "method": "get",
+            "params": {"vpc": "{{vpc_id}}"},
+            "payload": {}
+          },
+          "options": [
+          ]
+        }
+        ]
+      },
+      {
+          "label": "Chef-server",
+          "tooltip": "chef-server for deployment",
+          "placeholder": "chef-server for deployment",
+          "dataType": "list",
+          "fieldName": "chef_server_id",
+          "defaultValue": "",
+          "notify": [],
+          "options_query": {
+            "url": "deepinsight/chefservers?query_format=options",
+            "method": "get",
+            "params": {},
+            "payload": {}
+          },
+          "options": [
+          ]
+        },
+      {
+        "label": "SnappyFlow Application name",
+        "tooltip": "SnappyFlow Application name",
+        "placeholder": "SnappyFlow Application name",
+        "dataType": "string",
+        "fieldName": "sf_app_name",
+        "defaultValue": "{{form#application_name}}",
+        "hidden": true
+      },
+        {
+          "label": "S3-Repository(war/jar files)",
+          "tooltip": "Application build files",
+          "placeholder": "Application build files",
+          "dataType": "list",
+          "fieldName": "bucket_name",
+          "defaultValue": "",
+          "notify": ["project_name", "app_name", "pipeline_stage", "version"],
+          "options_query": {
+            "url": "deepinsight/s3repos?query_format=options",
+            "method": "get",
+            "params": {},
+            "payload": {}
+          },
+          "options": [
+          ]
+        },
+        {
+          "label": "Project",
+          "tooltip": "application project",
+          "placeholder": "application project name",
+          "dataType": "list",
+          "fieldName": "project_name",
+          "defaultValue": "",
+          "notify": ["app_name", "pipeline_stage", "version"],
+          "options_query": {
+            "url": "deepinsight/cloudprofiles/{{form#cloudprofile}}/s3dir",
+            "method": "get",
+            "params": {"bucket_name": "{{bucket_name}}"},
+            "payload": {}
+          },
+          "options": [
+          ]
+        },
+        {
+          "label": "Application Name",
+          "tooltip": "application name",
+          "placeholder": "application name",
+          "dataType": "list",
+          "fieldName": "app_name",
+          "defaultValue": "",
+          "notify": ["pipeline_stage", "version"],
+          "options_query": {
+            "url": "deepinsight/cloudprofiles/{{form#cloudprofile}}/s3dir",
+            "method": "get",
+            "params": {"bucket_name": "{{bucket_name}}", "proj": "{{project_name}}"},
+            "payload": {}
+          },
+          "options": [
+          ]
+        },
+        {
+          "label": "Deployment Stage",
+          "tooltip": "application pipeline stage",
+          "placeholder": "application pipeline stage",
+          "dataType": "list",
+          "fieldName": "pipeline_stage",
+          "defaultValue": "",
+          "options_query": {
+            "url": "deepinsight/cloudprofiles/{{form#cloudprofile}}/s3dir",
+            "method": "get",
+            "params": {"bucket_name": "{{bucket_name}}", "proj": "{{project_name}}", "app": "{{app_name}}"},
+            "payload": {}
+          },
+          "options": [
+          ]
+        },
+        {
+          "label": "App version",
+          "tooltip": "App version",
+          "placeholder": "App version",
+          "dataType": "list",
+          "fieldName": "version",
+          "defaultValue": "2.2.0",
+          "options": [
+            {
+              "label": "2.2.0",
+              "value": "2.2.0"
+            },
+            {
+              "label": "2.3.0",
+              "value": "2.3.0"
+            }
+          ]
+        },
+      {
+        "label": "MySQL Server Specification",
+        "description": "",
+        "dataType": "group",
+        "parameters": [
+          {
+            "label": "Instance Type",
+            "tooltip": "AWS instance type of all VMs",
+            "dataType": "instanceType",
+            "fieldName": "vm_instance_type"
+          },
+          {
+            "label": "Root Disk Size(GB)",
+            "tooltip": "Disk size in GB",
+            "placeholder": "Disk size in GB",
+            "dataType": "integer",
+            "fieldName": "vm_disk_size",
+            "defaultValue": 10,
+            "min": 10,
+            "max": 200
+          },
+          {
+            "label": "Disk Type",
+            "tooltip": "Disk Type",
+            "placeholder": "Disk Type",
+            "dataType": "list",
+            "fieldName": "vm_disk_type",
+            "defaultValue": "standard",
+            "options": [
+              {
+                "label": "EBS Magnetic",
+                "value": "standard"
+              },
+              {
+                "label": "General Purpose SSD",
+                "value": "gp2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+    ]
+}

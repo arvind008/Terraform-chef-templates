@@ -1,0 +1,17 @@
+# Application Server Parameters
+# Format: Yaml
+# Contains input parameters and any application specific parameters
+#
+# There are multiple choices to wire application components
+#   1. Specific host name or IP addressas argument: Wired at build time
+#   2. Predefined names resolved by DNS/route53:  Wired at run time
+#   3. Predefined names, but no route53/DNS: Wired by SF project reconfiguration
+#
+# This sample application requires MySQL database.
+# MySQL Server connectivity details
+# This sample uses option 3 above and configured for mysql-node-1. Hence below lines commented
+MYSQL_UN: root
+MYSQL_PWD: password
+#
+# Application Parameters
+# MaxStackSize: 2148
