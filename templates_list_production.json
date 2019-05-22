@@ -1,0 +1,32 @@
+{
+  "vcenter": [
+    "Apache Kafka Cluster",
+    "Elasticsearch Cluster",
+    "Hadoop Cluster - Small",
+    "Hadoop Cluster - Standard",
+    "Kubernetes - Standard",
+    "Raw Workload"
+  ],
+  "aws": [
+    "Apache Kafka Cluster",
+    "Elasticsearch Cluster",
+    "Elasticsearch Cluster - Single Node",
+    "Hadoop Cluster - Small",
+    "Hadoop Cluster - Standard",
+    "hadoop-new - 3 data 1 mgr node",
+    "Kubernetes - Standard",
+    "Kubernetes - Dev Cluster",
+    "Raw Workload",
+    "OpenVPN",
+    "Nginx Server",
+    "Apache Tomcat Server",
+    "Redis - Single Node",
+    "HAProxy Server"
+  ],
+  "openstack": [
+    "Elasticsearch Cluster"
+  ],
+  "gcp": [
+    "Elasticsearch Cluster"
+  ]
+}

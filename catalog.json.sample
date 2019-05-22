@@ -1,0 +1,12 @@
+[
+    {
+        "description": "Create a Elastic Search cluster using terraform and ansible elastic role",
+        "limitations": "",
+        "name": "ElasticSearch",
+        "path": "/home/mahanth/PycharmProjects/cloudprovision-templates/elasticsearch-vcenter",
+        "prerequisites": "",
+        "target_cloud": "vcenter",
+        "type": "terraform",
+        "url": "https://github.com/pramurthy/cloudprovision-templates/tree/master/elasticsearch-vcenter"
+    }
+]
