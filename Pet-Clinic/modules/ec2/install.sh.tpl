@@ -4,8 +4,8 @@ sudo apt install -y awscli
 sudo mkdir -p /etc/chef
 sudo curl -LO https://www.chef.io/chef/install.sh
 sudo bash install.sh
-sudo aws s3 cp s3://chefpemfiles/"${chef_user_pem}" /etc/chef/gmanal.pem
-sudo aws s3 cp s3://chefpemfiles/"${chef_organization_pem}" /etc/chef/maplelabs123-validator.pem
+#sudo aws s3 cp s3://hubvpc/chef-keys/"${chef_user_pem}" /etc/chef/gmanal.pem
+sudo aws s3 cp s3://hubvpc/chef-keys/"${chef_organization_pem}" /etc/chef/${chef_organization_pem}
 sudo aws s3 cp "${s3_build_jar}"/spring-petclinic-"${app_version}".jar /home/ubuntu/spring-petclinic-"${app_version}".jar
 sudo knife ssl fetch -s "${central_chef_server_url}"
 sudo echo "log_level       :info
