@@ -15,6 +15,7 @@ module "my_vpc" {
 
 module "my_iam" {
   source = "modules/iam"
+  stackname = "${var.stackname}"
 }
 
 # Create Database instances
