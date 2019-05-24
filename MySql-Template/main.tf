@@ -21,7 +21,7 @@ module "my_iam" {
 module "db_instance" {
   source                  = "modules/ec2"
   instance_count          = "${var.vm_count}"
-  ami_id                  = "${local.mysql_ami}"
+  ami_id                  = "${var.ami_id}"
   instance_type           = "${var.vm_instance_type}"
   stackname               = "${var.stackname}"
   security_group_id       = "${module.my_vpc.security_group_id}"
