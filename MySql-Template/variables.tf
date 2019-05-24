@@ -1,13 +1,11 @@
 ###########################################################################
 #  Copyright 2018-19. MapleLabs                                           #
 #                                                                         #
-#  Template for Provisioning LB                               #
+#  Template for Provisioning Mysql                                        #
 #                                                                         #
 ###########################################################################
 
-variable "aws_region" {
-  description = "EC2 Region for the VPC"
-  default     = "us-west-2"
+variable "region" {
 }
 
 variable "access_key" {
@@ -15,6 +13,10 @@ variable "access_key" {
 }
 
 variable "secret_key" {
+  default = ""
+}
+
+variable "session_token" {
   default = ""
 }
 
@@ -51,7 +53,7 @@ variable "vm_disk_type" {
 }
 
 variable "ssh_key_name" {
-  default = "arvind_pem"
+  default = ""
 }
 
 variable "ssh_key_path" {
@@ -88,4 +90,7 @@ variable "app_name" {
 }
 variable "project_name" {
   default ="ITCS"
+}
+variable "ami_id" {
+  default = ""
 }

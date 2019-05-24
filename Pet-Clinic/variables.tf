@@ -5,9 +5,7 @@
 #                                                                         #
 ###########################################################################
 
-variable "aws_region" {
-  description = "EC2 Region for the VPC"
-  default     = "us-west-2"
+variable "region" {
 }
 
 variable "access_key" {}
@@ -20,6 +18,9 @@ variable "vpc_id" {
   default = ""
 }
 
+variable "session_token" {
+  default = ""
+}
 
 variable "subnet_id" {
   default = ""
@@ -54,7 +55,7 @@ variable "vm_disk_type" {
 }
 
 variable "ssh_key_name" {
-  default = "arvind_pem"
+  default = ""
 }
 
 variable "ssh_key_path" {
@@ -97,5 +98,8 @@ variable "s3_build_jar" {
   default = "s3://petclinic-build-jar"
 }
 variable "sf_app_name"{
+  default = ""
+}
+variable "ami_id" {
   default = ""
 }

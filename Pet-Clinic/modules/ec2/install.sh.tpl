@@ -18,8 +18,8 @@ project_name=${project_name}
 sf_app_name=${sf_app_name}
 pipeline_stage=${pipeline_stage}
 chef_secret_key_loc=/etc/chef/${chef_user_pem}" >> /etc/petclinic.config
-sudo chef-client -S "${central_chef_server_url}" -K /etc/chef/maplelabs123-validator.pem -o "recipe[java]"
-sudo chef-client -S "${central_chef_server_url}" -K /etc/chef/maplelabs123-validator.pem -o "recipe[mysqld]"
-sudo chef-client -S "${central_chef_server_url}" -K /etc/chef/maplelabs123-validator.pem -o "recipe[${cookbook_name}]"
+sudo chef-client -S "${central_chef_server_url}" -K /etc/chef/${chef_organization_pem} -o "recipe[java]"
+sudo chef-client -S "${central_chef_server_url}" -K /etc/chef/${chef_organization_pem} -o "recipe[mysqld]"
+sudo chef-client -S "${central_chef_server_url}" -K /etc/chef/${chef_organization_pem} -o "recipe[${cookbook_name}]"
 
 

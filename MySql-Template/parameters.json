@@ -101,6 +101,14 @@
         ]
       },
       {
+          "label": "Amazon Machine Image for VM",
+          "tooltip": "AMI ID for the VM",
+          "placeholder": "ami-0e3910a2055d07dab",
+          "dataType": "string",
+          "fieldName": "ami_id",
+          "defaultValue": ""
+      },
+      {
           "label": "Chef-server",
           "tooltip": "chef-server for deployment",
           "placeholder": "chef-server for deployment",

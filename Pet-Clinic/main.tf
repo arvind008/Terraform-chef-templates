@@ -3,6 +3,7 @@ provider "aws" {
   access_key = "${var.access_key}"
   secret_key = "${var.secret_key}"
   region     = "${var.aws_region}"
+  token      = "${var.session_token}"
 }
 
 # Push chef recipe to chef-server
@@ -32,7 +33,7 @@ module "db_instance" {
   source            = "modules/ec2"
   instance_count    = "${var.vm_count}"
   vpc_id            = "${data.aws_vpc.selected_vpc.id}"
-  ami_id            = "${local.mysql_ami}"
+  ami_id            = "${var.ami_id}"
   instance_type     = "${var.vm_instance_type}"
   stackname           = "${var.stackname}"
   create_lb         = "${var.create_lb}"
