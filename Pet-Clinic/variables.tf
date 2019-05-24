@@ -103,3 +103,7 @@ variable "sf_app_name"{
 variable "ami_id" {
   default = ""
 }
+
+variable "stackname" {
+  default = ""
+}
