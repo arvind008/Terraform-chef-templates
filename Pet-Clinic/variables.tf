@@ -104,6 +104,3 @@ variable "ami_id" {
   default = ""
 }
 
-variable "stackname" {
-  default = ""
-}
