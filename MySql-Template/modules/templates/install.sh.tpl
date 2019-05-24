@@ -11,6 +11,7 @@ sudo echo "log_level       :info
 log_location     STDOUT
 chef_server_url '${central_chef_server_url}'
 trusted_certs_dir '/root/.chef/trusted_certs'
-ssl_verify_mode  :verify_none" >> /etc/chef/client.rb
+ssl_verify_mode  :verify_none
+validation_client_name \"itcs-validator\"" >> /etc/chef/client.rb
 sudo chef-client -S "${central_chef_server_url}" -K /etc/chef/${chef_organization_pem} -o "recipe[${cookbook_name}@${app_version}]"
 #sudo chef-client -S "${central_chef_server_url}" -K /etc/chef/${chef_organization_pem} -o "recipe[petclinic_mysql_config]"
