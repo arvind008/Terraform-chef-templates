@@ -32,8 +32,10 @@ variable "vpc_id" {
 data "template_file" "install_script" {
   template = "${file("modules/ec2/install.sh.tpl")}"
   vars { 
+    bucket_name             = "${var.bucket_name}"
     pipeline_stage          = "${var.pipeline_stage}"
     project_name            = "${var.project_name}"
+    app_name                = "${var.app_name}"
     mysql_app_name          = "${var.mysql_app_name}"
     sf_app_name             = "${var.sf_app_name}"
     central_chef_server_url = "${var.central_chef_server_url}"
@@ -43,6 +45,10 @@ data "template_file" "install_script" {
     s3_build_jar	    = "${var.s3_build_jar}"
     app_version             = "${var.app_version}"
   }
+}
+variable "bucket_name" {
+}
+variable "app_name" {
 }
 variable "pipeline_stage" { 
 }

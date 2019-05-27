@@ -57,4 +57,6 @@ module "db_instance" {
   s3_build_jar		  = "${var.s3_build_jar}"
   app_version             = "${var.version}"
   sf_app_name             = "${var.sf_app_name}"
+  bucket_name             = "${var.bucket_name}"
+  app_name                = "${var.app_name}"
 }

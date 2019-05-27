@@ -6,7 +6,7 @@ sudo curl -LO https://www.chef.io/chef/install.sh
 sudo bash install.sh -v 14.0.190
 #sudo aws s3 cp s3://hubvpc/chef-keys/"${chef_user_pem}" /etc/chef/gmanal.pem
 sudo aws s3 cp s3://hubvpc/chef-keys/"${chef_organization_pem}" /etc/chef/${chef_organization_pem}
-sudo aws s3 cp "${s3_build_jar}"/spring-petclinic-"${app_version}".jar /home/ubuntu/spring-petclinic-"${app_version}".jar
+sudo aws s3 cp s3://"${bucket_name}"/"${project_name}"/"${app_name}"/"${pipeline_stage}"/spring-petclinic-"${app_version}".jar /home/ubuntu/spring-petclinic-"${app_version}".jar
 sudo knife ssl fetch -s "${central_chef_server_url}"
 sudo echo "log_level       :info
 log_location     STDOUT

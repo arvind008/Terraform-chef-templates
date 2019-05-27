@@ -95,7 +95,7 @@ variable "cookbook_name" {
   default = "PetClinic"
 }
 variable "s3_build_jar" {
-  default = "s3://petclinic-build-jar"
+  default = "s3://adobe-mcmp"
 }
 variable "sf_app_name"{
   default = ""
