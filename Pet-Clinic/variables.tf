@@ -65,6 +65,9 @@ variable "ssh_key_path" {
 variable "ssh_user" {
   default = "ubuntu"
 }
+variable "bucket_name" {
+  default = ""
+}
 variable "pipeline_stage" {
   default ="dev"
 }
